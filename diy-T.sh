@@ -30,8 +30,10 @@ sed -i 's#"app_source"><#"app_source">https://gitee.com/zhoujck/tv/raw/master/bo
 mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_icon.png
 
 #背景修改
-mv $CURRENT_DIR/DIY/app_bg.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
+mv $CURRENT_DIR/DIY/app_bg_black.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
 
+#长按倍速修改为2
+sed -i 's/3.0/2.0/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
 
 #FongMi的jar支持
 echo "" >>$CURRENT_DIR/$DIR/app/proguard-rules.pro
