@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Clone Project
-        run: git clone -b main --depth=1 https://github.com/takagen99/Box.git
+        run: git clone -b main --depth=1 https://github.com/zhoujck/takaBox.git
       - name: DIY
         run: |
           chmod +x diy-T.sh
@@ -36,5 +36,5 @@ jobs:
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: 糖果-
+          name: 糖果tv
           path: ${{ github.workspace }}/apk/*
