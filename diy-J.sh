@@ -27,13 +27,13 @@ sed -i 's/TVBox/糖果TV/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xm
 cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-hdpi/app_icon.png
 cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xhdpi/app_icon.png
 cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxhdpi/app_icon.png
-cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxxhdpi/app_icon.png
+mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxxhdpi/app_icon.png
 
 #主页UI微调
 cp $CURRENT_DIR/DIY/J/fragment_user.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_user.xml
 
 #主页增加每日一言
-cp $CURRENT_DIR/DIY/J/activity_home.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_home.xml
+#cp $CURRENT_DIR/DIY/J/activity_home.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_home.xml
 #cp $CURRENT_DIR/DIY/J/HomeActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
 
 #背景修改
@@ -53,7 +53,7 @@ cp $CURRENT_DIR/DIY/J/player_vod_control_view.xml  $CURRENT_DIR/$DIR/app/src/mai
 cp $CURRENT_DIR/DIY/J/VodController.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
 cp $CURRENT_DIR/DIY/J/LivePlayActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
 
-//通用
+#通用
 #cp $CURRENT_DIR/DIY/HawkConfig.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/HawkConfig.java
 
 #修改进度条消失时间
