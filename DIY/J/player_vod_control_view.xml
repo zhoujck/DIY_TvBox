@@ -376,7 +376,7 @@
                 android:layout_marginEnd="@dimen/vs_5"
                 android:layout_marginRight="@dimen/vs_5"
                 android:padding="@dimen/vs_10"
-                android:visibility:"gone"       
+                android:visibility="gone"       
                 android:text="片头片尾"
                 android:textColor="@color/color_FFFFFF"
                 android:textSize="@dimen/ts_20" />
