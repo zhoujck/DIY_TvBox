@@ -323,11 +323,11 @@
                 android:layout_marginLeft="@dimen/vs_6"
                 android:layout_marginEnd="@dimen/vs_6"
                 android:layout_marginRight="@dimen/vs_6"
-                android:background="@color/color_FFFFFF_50"
+                android:background="@color/color_FFFFFF"
                 android:gravity="center"
                 android:padding="@dimen/vs_10"
                 android:textColor="@color/color_FFFFFF"
-                android:textSize="@dimen/ts_22" />           
+                android:textSize="@dimen/ts_24" />           
             
             <!--添加片头片尾长按重置按钮-->
             <TextView
