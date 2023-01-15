@@ -295,7 +295,7 @@
                 android:padding="@dimen/vs_10"
                 android:text="音轨"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/ts_20"/>
+                android:textSize="@dimen/ts_20" />
 
             <TextView
                 android:id="@+id/landscape_portrait"
