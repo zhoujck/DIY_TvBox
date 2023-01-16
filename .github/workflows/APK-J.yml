@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Clone Project
-        run: git clone -b main --depth=1 https://github.com/q215613905/TVBoxOS
+        run: git clone -b main --depth=1 https://github.com/zhoujck/TVBoxOS
       - name: DIY
         run: |
           chmod +x diy-J.sh
