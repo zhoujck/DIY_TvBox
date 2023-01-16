@@ -58,15 +58,7 @@ diy-J.sh、diy-T.sh、diy-O.sh、diy-TV.sh分别为俊版、taka版、原版自�
 
 + Updated Commit: 04b30d5adfcf2f72c5c64b0745b42d2cd96ae303
 
-# SJTV
-- [M-LTV/TVBox-suanjin](https://github.com/M-LTV/TVBox-suanjin)
 
-+ Updated Commit: a0bda9d618196a3fa9f11ebefb97e557f2fc12ee
-
-# TVBox-kensonmiao
-- [kensonmiao/CatVodTVOSC](https://github.com/kensonmiao/CatVodTVOSC)
-
-+ Updated Commit: 09be7d64f6e85051190c61d59aa3eb744ad699e0
 
 ## 仓库平台&配置
 ### 仓库&储存平台
