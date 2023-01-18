@@ -528,7 +528,7 @@ public class LivePlayActivity extends BaseActivity {
                 ((TextView) findViewById(R.id.tv_source)).setText("1/1");
             } else {
                 ((TextView) findViewById(R.id.tv_source)).setText("[线路" + (channel_Name.getSourceIndex() + 1) + "/" + channel_Name.getSourceNum() + "]");
-                mResolution.setText("["+ mVideoView.getVideoSize()[0] + " x " + mVideoView.getVideoSize()[1] + "]");
+                ((TextView) findViewById(R.id.live_size)).setText("["+ mVideoView.getVideoSize()[0] + " x " + mVideoView.getVideoSize()[1] + "]");
             }
             tv_right_top_channel_name.setText(channel_Name.getChannelName());
             tv_right_top_epg_name.setText(channel_Name.getChannelName());
