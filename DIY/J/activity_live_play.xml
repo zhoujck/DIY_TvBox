@@ -600,6 +600,19 @@
 			android:text=""
 			android:textColor="@color/color_FFFFFF"
 			android:textSize="@dimen/ts_26" />
+		
+		<TextView
+			android:id="@+id/live_size"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignTop="@+id/view_bg"
+			android:layout_marginRight="@dimen/vs_60"
+			android:layout_marginTop="@dimen/vs_10"
+			android:layout_marginBottom="@dimen/vs_10"
+			android:layout_alignParentRight="true"
+			android:text="[1080x1080]"
+			android:textColor="@color/color_FFFFFF"
+			android:textSize="@dimen/ts_26" />
 
 		<TextView
 			android:id="@+id/tv_source"
