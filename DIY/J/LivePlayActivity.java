@@ -512,7 +512,7 @@ public class LivePlayActivity extends BaseActivity {
 
             if(!tip_epg1.getText().equals("暂无信息")){
                 ll_epg.setVisibility(View.VISIBLE);
-                countDownTimer = new CountDownTimer(8000, 1000) {//底部epg隐藏时间设定
+                countDownTimer = new CountDownTimer(6000, 1000) {//底部epg隐藏时间设定
                     public void onTick(long j) {
                     }
                     public void onFinish() {
@@ -528,6 +528,7 @@ public class LivePlayActivity extends BaseActivity {
                 ((TextView) findViewById(R.id.tv_source)).setText("1/1");
             } else {
                 ((TextView) findViewById(R.id.tv_source)).setText("[线路" + (channel_Name.getSourceIndex() + 1) + "/" + channel_Name.getSourceNum() + "]");
+                mResolution.setText("["+ mVideoView.getVideoSize()[0] + " x " + mVideoView.getVideoSize()[1] + "]");
             }
             tv_right_top_channel_name.setText(channel_Name.getChannelName());
             tv_right_top_epg_name.setText(channel_Name.getChannelName());
