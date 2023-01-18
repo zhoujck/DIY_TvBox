@@ -100,6 +100,7 @@ public class LivePlayActivity extends BaseActivity {
     public static Context context;
     private VideoView mVideoView;
     private TextView tvChannelInfo;
+    private TextView mResolution;
     private TextView tvTime;
     private TextView tvNetSpeed;
     private LinearLayout tvLeftChannelListLayout;
