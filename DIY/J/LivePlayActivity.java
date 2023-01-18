@@ -240,7 +240,8 @@ public class LivePlayActivity extends BaseActivity {
         divLoadEpg = (View) findViewById(R.id.divLoadEpg);
         divLoadEpgleft = (View) findViewById(R.id.divLoadEpgleft);
         divEpg = (LinearLayout) findViewById(R.id.divEPG);
-        //右上角图片旋转
+
+             //右上角图片旋转
         objectAnimator = ObjectAnimator.ofFloat(iv_circle_bg,"rotation", 360.0f);
         objectAnimator.setDuration(5000);
         objectAnimator.setRepeatCount(-1);
@@ -1675,11 +1676,11 @@ public class LivePlayActivity extends BaseActivity {
         if (Hawk.get(HawkConfig.LIVE_SHOW_TIME, false)) {
             mHandler.post(mUpdateTimeRun);
             tvTime.setVisibility(View.VISIBLE);
-            mResolution.setVisibility(View.VISIBLE);
+
         } else {
             mHandler.removeCallbacks(mUpdateTimeRun);
             tvTime.setVisibility(View.GONE);
-            mResolution.setVisibility(View.GONE);
+
         }
     }
 
