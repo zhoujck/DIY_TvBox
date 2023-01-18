@@ -1691,7 +1691,7 @@ public class LivePlayActivity extends BaseActivity {
             SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
             tvTime.setText(df.format(day));
             mHandler.postDelayed(this, 1000);
-            mResolution.setText("["+ mVideoView.getVideoSize()[0] + " x " + mVideoView.getVideoSize()[1] + "]");
+            
         }
     };
 
