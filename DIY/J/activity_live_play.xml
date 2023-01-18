@@ -606,7 +606,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_alignTop="@+id/view_bg"
-			android:layout_marginRight="@dimen/vs_60"
+			android:layout_marginRight="@dimen/vs_120"
 			android:layout_marginTop="@dimen/vs_10"
 			android:layout_marginBottom="@dimen/vs_10"
 			android:layout_alignParentRight="true"
