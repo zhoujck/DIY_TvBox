@@ -49,6 +49,7 @@ sed -i 's#API_URL, ""#API_URL, "https://gitee.com/zhoujck/tv/raw/master/box"#g' 
 #cp $CURRENT_DIR/DIY/epg_data.json $CURRENT_DIR/$DIR/app/src/main/assets/epg_data.json
 
 #播放界面修改
+#cp $CURRENT_DIR/DIY/J/activity_live_play.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_live_play.xml
 cp $CURRENT_DIR/DIY/J/player_vod_control_view.xml  $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
 cp $CURRENT_DIR/DIY/J/VodController.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
 cp $CURRENT_DIR/DIY/J/LivePlayActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
