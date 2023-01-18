@@ -215,6 +215,7 @@ public class LivePlayActivity extends BaseActivity {
         tvChannelInfo = findViewById(R.id.tvChannel);
         tvTime = findViewById(R.id.tvTime);
         tvNetSpeed = findViewById(R.id.tvNetSpeed);
+        mResolution = findViewById(R.id.live_size);
 
         //EPG  findViewById  by 龍
         tip_chname = (TextView)  findViewById(R.id.tv_channel_bar_name);//底部名称
@@ -1673,9 +1674,11 @@ public class LivePlayActivity extends BaseActivity {
         if (Hawk.get(HawkConfig.LIVE_SHOW_TIME, false)) {
             mHandler.post(mUpdateTimeRun);
             tvTime.setVisibility(View.VISIBLE);
+            mResolution.setVisibility(View.VISIBLE);
         } else {
             mHandler.removeCallbacks(mUpdateTimeRun);
             tvTime.setVisibility(View.GONE);
+            mResolution.setVisibility(View.GONE);
         }
     }
 
@@ -1686,6 +1689,7 @@ public class LivePlayActivity extends BaseActivity {
             SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
             tvTime.setText(df.format(day));
             mHandler.postDelayed(this, 1000);
+            mResolution.setText(mVideoView.getVideoSize()[0] + " x " + mVideoView.getVideoSize()[1]);
         }
     };
 
