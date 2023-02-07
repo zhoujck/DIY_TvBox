@@ -140,6 +140,7 @@
 
             <LinearLayout
                 android:id="@+id/tvPush"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/vs_80"
                 android:layout_gravity="center"
