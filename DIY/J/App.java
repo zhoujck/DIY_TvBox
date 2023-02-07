@@ -59,13 +59,13 @@ public class App extends MultiDexApplication {
         Hawk.init(this).build();
         Hawk.put(HawkConfig.DEBUG_OPEN, false);
         putDefault(HawkConfig.HOME_REC, 1);       // Home Rec 0=豆瓣, 1=站点推荐, 2=历史
-        putDefault(HawkConfig.HOME_REC_STYLE, ture);    // 首页多行 是 or 否
-        putDefault(HawkConfig.FAST_SEARCH_MODE, ture);    // 聚合模式 打开 or 关闭  
+        putDefault(HawkConfig.HOME_REC_STYLE, true);    // 首页多行 是 or 否
+        putDefault(HawkConfig.FAST_SEARCH_MODE, true);    // 聚合模式 打开 or 关闭  
         putDefault(HawkConfig.PLAY_TYPE, 1);      // Player   0=系统, 1=IJK, 2=Exo
         putDefault(HawkConfig.IJK_CODEC, "硬解码");// IJK Render 软解码, 硬解码
         putDefault(HawkConfig.DOH_URL, 2);        // DNS 0=关闭 1=腾讯 2=阿里 3=360
         putDefault(HawkConfig.SEARCH_VIEW, 1);    // 搜索展示 Text or Picture       
-        putDefault(HawkConfig.IJK_CACHE_PLAY, ture);    // IJK缓存 打开 or 关闭
+        putDefault(HawkConfig.IJK_CACHE_PLAY, true);    // IJK缓存 打开 or 关闭
         putDefault(HawkConfig.HISTORY_NUM, 0);    // 0=30 1=50 2=70
     }
 
