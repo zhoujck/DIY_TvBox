@@ -40,7 +40,7 @@ cp $CURRENT_DIR/DIY/J/fragment_user.xml $CURRENT_DIR/$DIR/app/src/main/res/layou
 cp $CURRENT_DIR/DIY/app_bg_black.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
 
 # 默认设置
-cp $CURRENT_DIR/DIY/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java 
+cp $CURRENT_DIR/DIY/J/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java 
 
 # 内置接口String apiUrl = Hawk.get(HawkConfig.API_URL, "https://gitee.com/zhoujck/tv/raw/master/box");
 sed -i 's#API_URL, ""#API_URL, "https://gitee.com/zhoujck/tv/raw/master/box"#g'   $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
