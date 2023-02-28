@@ -311,8 +311,8 @@ public class ApiConfig {
         // tvtalk
         if(infoJson.has("tvtalk") && (infoJson.get("tvtalk").isJsonObject() || infoJson.get("tvtalk").isJsonArray())){            
                 String result = (infoJson.get("tvtalk").toString());
-                JSONObject jsonObject = new JSONObject(result);
-                tvtalk = jsonObject.optString("hitokoto");          
+                //JSONObject jsonObject = new JSONObject(result);
+                tvtalk = JSONObject(result).optString("hitokoto");          
             }else {
                 tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
             }
