@@ -620,4 +620,72 @@ public class ApiConfig {
         this.mDefaultParse = parseBean;
         Hawk.put(HawkConfig.DEFAULT_PARSE, parseBean.getName());
         parseBean.setDefault(true);
-    
+    }
+
+    public ParseBean getDefaultParse() {
+        return mDefaultParse;
+    }
+
+    public List<SourceBean> getSourceBeanList() {
+        return new ArrayList<>(sourceBeanList.values());
+    }
+
+    public List<ParseBean> getParseBeanList() {
+        return parseBeanList;
+    }
+
+    public List<String> getVipParseFlags() {
+        return vipParseFlags;
+    }
+
+    public SourceBean getHomeSourceBean() {
+        return mHomeSource == null ? emptyHome : mHomeSource;
+    }
+
+    public List<LiveChannelGroup> getChannelGroupList() {
+        return liveChannelGroupList;
+    }
+
+    public List<IJKCode> getIjkCodes() {
+        return ijkCodes;
+    }
+
+    public IJKCode getCurrentIJKCode() {
+        String codeName = Hawk.get(HawkConfig.IJK_CODEC, "");
+        return getIJKCodec(codeName);
+    }
+
+    public IJKCode getIJKCodec(String name) {
+        for (IJKCode code : ijkCodes) {
+            if (code.getName().equals(name))
+                return code;
+        }
+        return ijkCodes.get(0);
+    }
+
+    String clanToAddress(String lanLink) {
+        if (lanLink.startsWith("clan://localhost/")) {
+            return lanLink.replace("clan://localhost/", ControlManager.get().getAddress(true) + "file/");
+        } else {
+            String link = lanLink.substring(7);
+            int end = link.indexOf('/');
+            return "http://" + link.substring(0, end) + "/file/" + link.substring(end + 1);
+        }
+    }
+
+    String clanContentFix(String lanLink, String content) {
+        String fix = lanLink.substring(0, lanLink.indexOf("/file/") + 6);
+        return content.replace("clan://", fix);
+    }
+
+    String fixContentPath(String url, String content) {
+        if (content.contains("\"./")) {
+            if(!url.startsWith("http") && !url.startsWith("clan://")){
+                url = "http://" + url;
+            }
+            if(url.startsWith("clan://"))url=clanToAddress(url);
+            content = content.replace("./", url.substring(0,url.lastIndexOf("/") + 1));
+        }
+        return content;
+    }
+}
