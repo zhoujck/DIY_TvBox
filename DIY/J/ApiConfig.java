@@ -309,6 +309,7 @@ public class ApiConfig {
         bReader.close();
         parseJson(apiUrl, sb.toString());
     }
+    
 
     private void parseJson(String apiUrl, String jsonStr) {
         JsonObject infoJson = new Gson().fromJson(jsonStr, JsonObject.class);
@@ -319,7 +320,7 @@ public class ApiConfig {
         // tvtalk
         String tvtalkurl = infoJson.get("tvtalk").getAsString();
        
-     if(tvtalkurl.startsWith("http"){ 
+        @Override
         private void sendRequestWithHttpClient() {
         new Thread(new Runnable() {
             @Override
@@ -349,13 +350,7 @@ public class ApiConfig {
                 }
             }
         }).start();
-    };
-
-       
-            }else {
-               tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
-            }
-        
+    }
         //tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
 
        
