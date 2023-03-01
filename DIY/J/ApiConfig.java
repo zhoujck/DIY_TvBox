@@ -319,8 +319,7 @@ public class ApiConfig {
         // tvtalk
         String tvtalkurl = infoJson.get("tvtalk").getAsString();
        
-     if(tvtalkurl.startsWith("http"){
-        
+     if(tvtalkurl.startsWith("http"){ 
         private void sendRequestWithHttpClient() {
         new Thread(new Runnable() {
             @Override
@@ -350,7 +349,7 @@ public class ApiConfig {
                 }
             }
         }).start();
-    }
+    };
 
        
             }else {
