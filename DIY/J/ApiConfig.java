@@ -45,6 +45,14 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.io.IOUtils;
+import java.nio.charset.StandardCharsets;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 /**
  * @author pj567
  * @date :2020/12/18
@@ -331,7 +339,8 @@ public class ApiConfig {
                         //得到响应流
                         InputStream inputStream = connection.getInputStream();
                         //将响应流转换成字符串
-                        String result = is2String(inputStream);//将流转换为字符串。
+                        //String result = is2String(inputStream);//将流转换为字符串。                   
+                        String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
                         JSONObject jsonObject = new JSONObject(result);
                         String tvtalk = jsonObject.optString("hitokoto");                    
                     }
