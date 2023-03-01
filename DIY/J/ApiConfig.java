@@ -61,7 +61,7 @@ public class ApiConfig {
     private List<IJKCode> ijkCodes;
     private String spider = null;
     public String wallpaper = "";
-    public String tvtalk = null;
+    public String tvtalk = "";
 
     private SourceBean emptyHome = new SourceBean();
 
