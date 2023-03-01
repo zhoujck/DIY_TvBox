@@ -309,13 +309,43 @@ public class ApiConfig {
         // wallpaper
         wallpaper = DefaultConfig.safeJsonString(infoJson, "wallpaper", "");
         // tvtalk
-        if(infoJson.get("tvtalk").isJsonObject() || infoJson.get("tvtalk").isJsonArray()){
-            JsonObject tvtalkOBJ = infoJson.get("tvtalk").getAsJsonArray().get(0).getAsJsonObject();
-            tvtalk = tvtalkOBJ.get("hitokoto").getAsString();
-                //tvtalk = tvtalkOBJ.optString("hitokoto");          
+        String tvtalkurl = infoJson.get("tvtalk").getAsString();
+       
+     if(tvtalkurl.startsWith("http"){
+        
+        private void sendRequestWithHttpClient() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL(tvtalkurl);
+                    //得到connection对象。
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    //设置请求方式
+                    connection.setRequestMethod("GET");
+                    //连接
+                    connection.connect();
+                    //得到响应码
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        //得到响应流
+                        InputStream inputStream = connection.getInputStream();
+                        //将响应流转换成字符串
+                        String result = is2String(inputStream);//将流转换为字符串。
+                        JSONObject jsonObject = new JSONObject(result);
+                        String tvtalk = jsonObject.optString("hitokoto");                    
+                    }
+ 
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+       
             }else {
-               //tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
-               String tvtalk = "1";
+               tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
             }
         
         //tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
