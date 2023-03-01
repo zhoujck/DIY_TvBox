@@ -45,33 +45,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.io.IOUtils;
-import java.nio.charset.StandardCharsets;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.ParseException;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.SSLContexts;
-import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.entity.mime.content.StringBody;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.junit.Test;
+
 
 /**
  * @author pj567
@@ -338,40 +312,7 @@ public class ApiConfig {
         // wallpaper
         wallpaper = DefaultConfig.safeJsonString(infoJson, "wallpaper", "");
         // tvtalk
-        String tvtalkurl = infoJson.get("tvtalk").getAsString();
-       
-        @Override
-        private void sendRequestWithHttpClient() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    URL url = new URL(tvtalkurl);
-                    //得到connection对象。
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                    //设置请求方式
-                    connection.setRequestMethod("GET");
-                    //连接
-                    connection.connect();
-                    //得到响应码
-                    int responseCode = connection.getResponseCode();
-                    if (responseCode == HttpURLConnection.HTTP_OK) {
-                        //得到响应流
-                        InputStream inputStream = connection.getInputStream();
-                        //将响应流转换成字符串
-                        //String result = is2String(inputStream);//将流转换为字符串。                   
-                        String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
-                        JSONObject jsonObject = new JSONObject(result);
-                        String tvtalk = jsonObject.optString("hitokoto");                    
-                    }
- 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-        //tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
+       tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
 
        
         
