@@ -61,7 +61,7 @@ public class ApiConfig {
     private List<IJKCode> ijkCodes;
     private String spider = null;
     public String wallpaper = "";
-    public String tvtalk = "";
+    //public String tvtalk = "";
 
     private SourceBean emptyHome = new SourceBean();
 
@@ -314,8 +314,8 @@ public class ApiConfig {
             tvtalk = tvtalkOBJ.get("hitokoto").getAsString();
                 //tvtalk = tvtalkOBJ.optString("hitokoto");          
             }else {
-               tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "1");
-                  //String tvtalk = "1";
+               //tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
+               String tvtalk = "1";
             }
         
         //tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
