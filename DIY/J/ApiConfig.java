@@ -309,9 +309,9 @@ public class ApiConfig {
         // wallpaper
         wallpaper = DefaultConfig.safeJsonString(infoJson, "wallpaper", "");
         // tvtalk
-        if(infoJson.has("tvtalk") && (infoJson.get("tvtalk").isJsonObject() || infoJson.get("tvtalk").isJsonArray())){
+        if(infoJson.get("tvtalk").isJsonObject() || infoJson.get("tvtalk").isJsonArray()){
             JsonObject tvtalkOBJ = infoJson.get("tvtalk").getAsJsonArray().get(0).getAsJsonObject();
-            String tvtalk = tvtalkOBJ.get("hitokoto").getAsString();
+            tvtalk = tvtalkOBJ.get("hitokoto").getAsString();
                 //tvtalk = tvtalkOBJ.optString("hitokoto");          
             }else {
                 tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
