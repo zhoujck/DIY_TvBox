@@ -315,7 +315,7 @@ public class ApiConfig {
                 //tvtalk = tvtalkOBJ.optString("hitokoto");          
             }else {
                // tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
-                  string tvtalk = "1";
+                  String tvtalk = "1";
             }
         
         //tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
