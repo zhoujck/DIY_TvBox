@@ -102,6 +102,7 @@ public class HomeActivity extends BaseActivity {
             
             String tvtalurl = ApiConfig.get().tvtalk;
             if (tvtalurl.startsWith("http")){
+            try{    
             UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
               public void onResponse(String paramString) {
               JSONObject jsonObject = new JSONObject(paramString);
@@ -109,10 +110,12 @@ public class HomeActivity extends BaseActivity {
               tvtalk1.setText(value);
               catch (JSONException jSONException) {
                     jSONException.printStackTrace();
+                    }
                 }
-              }
-            }); 
-            }eles{
+              
+              }); 
+             }   
+             }eles{
                   tvtalk1.setText(ApiConfig.get().tvtalk);  
                  }    
             mHandler.postDelayed(this, 1000);
