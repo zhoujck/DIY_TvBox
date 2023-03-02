@@ -68,6 +68,8 @@ import java.util.Date;
 import java.util.List;
 
 import me.jessyan.autosize.utils.AutoSizeUtils;
+import com.github.tvbox.osc.util.urlhttp.CallBackUtil;
+import com.github.tvbox.osc.util.urlhttp.UrlHttpUtil;
 
 public class HomeActivity extends BaseActivity {
     private LinearLayout topLayout;
@@ -97,10 +99,20 @@ public class HomeActivity extends BaseActivity {
             @SuppressLint("SimpleDateFormat")
             SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
             tvDate.setText(timeFormat.format(date));
-            if (!ApiConfig.get().tvtalk.isEmpty())
-            tvtalk1.setText(ApiConfig.get().tvtalk);
+            
+            String tvtalurl = ApiConfig.get().tvtalk;
+            UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
+              public void onResponse(String paramString) {
+              JSONObject jsonObject = new JSONObject(paramString);
+              String value = jsonObject.optString("hitokoto");
+              tvtalk1.setText(value);
+              catch (JSONException jSONException) {
+                    jSONException.printStackTrace();
+                }
+              }
+           });            
             mHandler.postDelayed(this, 1000);
-        }
+          }
     };
 
     @Override
