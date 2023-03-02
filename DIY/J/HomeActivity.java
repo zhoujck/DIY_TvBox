@@ -105,17 +105,16 @@ public class HomeActivity extends BaseActivity {
             try{    
             UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
               public void onResponse(String paramString) {
-              JSONObject jsonObject = new JSONObject(paramString);
-              String value = jsonObject.optString("hitokoto");
-              tvtalk1.setText(value);
-              catch (JSONException jSONException) {
-                    jSONException.printStackTrace();
-                    }
-                }
-              
+                JSONObject jsonObject = new JSONObject(paramString);
+                String value = jsonObject.optString("hitokoto");
+                tvtalk1.setText(value);
+                catch (JSONException jSONException) {
+                      jSONException.printStackTrace();
+                     }
+                 }              
               }); 
              }   
-             }eles{
+            }eles{
                   tvtalk1.setText(ApiConfig.get().tvtalk);  
                  }    
             mHandler.postDelayed(this, 1000);
