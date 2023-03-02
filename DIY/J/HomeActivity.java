@@ -111,7 +111,7 @@ public class HomeActivity extends BaseActivity {
                         tvtalk1.setText(ApiConfig.get().tvtalk);  
                         }
                           public void onResponse(String paramString) {
-                             if(paramString.isJsonObject()){ 
+                             if(paramString.isJSONObject()){ 
                                 JSONObject jsonObject = new JSONObject(paramString);
                                 String value = jsonObject.optString("hitokoto");
                                 tvtalk1.setText(value);
