@@ -113,7 +113,7 @@ public class HomeActivity extends BaseActivity {
                         }
                           public void onResponse(String paramString) {
                              
-                                JSONObject jsonObject = new JSONObject(paramString);
+                                JsonObject jsonObject = (JsonObject) paramString;
                                 String value = jsonObject.optString("hitokoto");
                                 tvtalk1.setText(value);
                           
