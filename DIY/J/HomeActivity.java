@@ -74,6 +74,7 @@ import com.github.tvbox.osc.util.urlhttp.UrlHttpUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.google.gson.JsonObject;
 
 public class HomeActivity extends BaseActivity {
     private LinearLayout topLayout;
@@ -111,8 +112,8 @@ public class HomeActivity extends BaseActivity {
                         tvtalk1.setText(ApiConfig.get().tvtalk);  
                         }
                           public void onResponse(String paramString) {
-                             if(paramString.isJSONObject()){ 
-                                JSONObject jsonObject = new JSONObject(paramString);
+                             if(paramString.isJsonObject()){ 
+                                JsonObject jsonObject = new JsonObject(paramString);
                                 String value = jsonObject.optString("hitokoto");
                                 tvtalk1.setText(value);
                              } else{
