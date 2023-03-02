@@ -75,6 +75,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.google.gson.JsonObject;
+import android.util.Log;
 
 public class HomeActivity extends BaseActivity {
     private LinearLayout topLayout;
@@ -106,23 +107,22 @@ public class HomeActivity extends BaseActivity {
             tvDate.setText(timeFormat.format(date));
             
             String tvtalurl = ApiConfig.get().tvtalk;            
-                try {    
-                    UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
-                        public void onFailure(int i, String str) {
-                        tvtalk1.setText(ApiConfig.get().tvtalk);  
-                        }
-                          public void onResponse(String paramString) {
-                             
-                                JsonObject jsonObject = (JsonObject) paramString;
+            UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
+                  public void onFailure(int i, String str) {
+                    tvtalk1.setText(ApiConfig.get().tvtalk);  
+                    }
+                   public void onResponse(String paramString) {
+                   Log.d("返回的EPG信息", paramString);
+                    try { 
+                        if (paramString.contains("hitokoto")) {
+                                JSONObject jsonObject = new JSONObject (paramString);
                                 String value = jsonObject.optString("hitokoto");
                                 tvtalk1.setText(value);
-                          
-                          }   
-                    }); 
-               }catch (Exception e) {
-                      e.printStackTrace();
-                      }  
-             
+                           } 
+                        }catch (Exception e) {
+                         e.printStackTrace();
+                         }  
+            }); 
             mHandler.postDelayed(this, 1000);
           }
     };
