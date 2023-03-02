@@ -110,7 +110,7 @@ public class HomeActivity extends BaseActivity {
             String tvtalurl = ApiConfig.get().tvtalk;            
             UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
                   public void onFailure(int i, String str) {
-                    tvtalk1.setText(ApiConfig.get().tvtalk);  
+                    tvtalk1.setText("Hello World");  
                     }
                    public void onResponse(String paramString) {
                         Log.d("返回的EPG信息", paramString);
@@ -119,7 +119,9 @@ public class HomeActivity extends BaseActivity {
                                 JSONObject jsonObject = new JSONObject (paramString);
                                 String value = jsonObject.optString("hitokoto");
                                 tvtalk1.setText(value);
-                             } 
+                             } else {
+                                     tvtalk1.setText(ApiConfig.get().tvtalk); 
+                                    }  
                         }catch (Exception e) {
                          e.printStackTrace();
                        } 
