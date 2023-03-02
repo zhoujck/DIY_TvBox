@@ -104,10 +104,12 @@ public class HomeActivity extends BaseActivity {
             SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
             tvDate.setText(timeFormat.format(date));
             
-            String tvtalurl = ApiConfig.get().tvtalk;
-            if (tvtalurl.startsWith("http")){
+            String tvtalurl = ApiConfig.get().tvtalk;            
                 try {    
                     UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
+                        public void onFailure(int i, String str) {
+                        tvtalk1.setText(ApiConfig.get().tvtalk);  
+                        }
                           public void onResponse(String paramString) {
                              JSONObject jsonObject = new JSONObject(paramString);
                              String value = jsonObject.optString("hitokoto");
@@ -117,9 +119,7 @@ public class HomeActivity extends BaseActivity {
                }catch (JSONException jSONException) {
                       jSONException.printStackTrace();
                       }  
-           }else {
-                  tvtalk1.setText(ApiConfig.get().tvtalk);  
-                 }   
+             
             mHandler.postDelayed(this, 1000);
           }
     };
