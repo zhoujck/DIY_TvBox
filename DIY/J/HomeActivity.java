@@ -111,9 +111,11 @@ public class HomeActivity extends BaseActivity {
                         tvtalk1.setText(ApiConfig.get().tvtalk);  
                         }
                           public void onResponse(String paramString) {
-                             JSONObject jsonObject = (JSONObject) paramString;
-                             String value = jsonObject.optString("hitokoto");
-                             tvtalk1.setText(value);
+                             if paramString.isJsonObject(){ 
+                                JSONObject jsonObject = new JSONObject(paramString);
+                                String value = jsonObject.optString("hitokoto");
+                                tvtalk1.setText(value);
+                             }    
                           }   
                     }); 
                }catch (Exception e) {
