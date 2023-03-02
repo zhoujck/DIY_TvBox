@@ -105,6 +105,7 @@ public class HomeActivity extends BaseActivity {
             @SuppressLint("SimpleDateFormat")
             SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
             tvDate.setText(timeFormat.format(date));
+            mHandler.postDelayed(this, 1000);
             
             String tvtalurl = ApiConfig.get().tvtalk;            
             UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
@@ -112,19 +113,19 @@ public class HomeActivity extends BaseActivity {
                     tvtalk1.setText(ApiConfig.get().tvtalk);  
                     }
                    public void onResponse(String paramString) {
-                   Log.d("返回的EPG信息", paramString);
-                    try { 
-                        if (paramString.contains("hitokoto")) {
+                        Log.d("返回的EPG信息", paramString);
+                        try { 
+                            if (paramString.contains("hitokoto")) {
                                 JSONObject jsonObject = new JSONObject (paramString);
                                 String value = jsonObject.optString("hitokoto");
                                 tvtalk1.setText(value);
-                           } 
+                             } 
                         }catch (Exception e) {
                          e.printStackTrace();
-                         }  
-            }); 
-            mHandler.postDelayed(this, 1000);
-          }
+                       } 
+                   }    
+          }); 
+       }       
     };
 
     @Override
