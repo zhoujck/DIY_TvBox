@@ -106,34 +106,7 @@ public class HomeActivity extends BaseActivity {
             SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
             tvDate.setText(timeFormat.format(date));
             mHandler.postDelayed(this, 1000);            
-       } 
-        
- //    首页增加每日一言          
-        @Override 
-        public void run1() { 
-            String tvtalurl = ApiConfig.get().daily_sentence;            
-            UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
-                   public void onFailure(int i, String str) {
-                        tvtalk1.setText(ApiConfig.get().tvtalk);  
-                        }
-                   public void onResponse(String paramString) {
-                        Log.d("返回的EPG信息", paramString);
-                        try { 
-                            if (paramString.contains("hitokoto")) {
-                                JSONObject jsonObject = new JSONObject (paramString);
-                                String value = jsonObject.optString("hitokoto");
-                                tvtalk1.setText(value);
-                             } else {
-                                     tvtalk1.setText(ApiConfig.get().tvtalk); 
-                                    }  
-                        }catch (Exception e) {
-                         e.printStackTrace();
-                       } 
-                   }    
-          });
-         mHandler.postDelayed(this, 60000);   
-        }   
-        
+       }                 
     };
 
     @Override
@@ -267,6 +240,29 @@ public class HomeActivity extends BaseActivity {
             }
         });
  
+ //    首页增加每日一言          
+
+            String tvtalurl = ApiConfig.get().daily_sentence;            
+            UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
+                   public void onFailure(int i, String str) {
+                        tvtalk1.setText(ApiConfig.get().tvtalk);  
+                        }
+                   public void onResponse(String paramString) {
+                        Log.d("返回的EPG信息", paramString);
+                        try { 
+                            if (paramString.contains("hitokoto")) {
+                                JSONObject jsonObject = new JSONObject (paramString);
+                                String value = jsonObject.optString("hitokoto");
+                                tvtalk1.setText(value);
+                             } else {
+                                     tvtalk1.setText(ApiConfig.get().tvtalk); 
+                                    }  
+                        }catch (Exception e) {
+                         e.printStackTrace();
+                       } 
+                   }    
+          });
+       
         
         setLoadSir(this.contentLayout);
         //mHandler.postDelayed(mFindFocus, 500);
