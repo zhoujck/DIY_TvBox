@@ -160,30 +160,7 @@ public class HomeActivity extends BaseActivity {
                                 view.findViewById(R.id.tvFilter).setVisibility(View.GONE);
                                 view.findViewById(R.id.tvFilterColor).setVisibility(View.GONE);
                             }
-                            textView.invalidate();
-                       //    首页增加每日一言          
-
-            String tvtalurl = ApiConfig.get().daily_sentence;            
-            UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
-                   public void onFailure(int i, String str) {
-                        tvtalk1.setText(ApiConfig.get().tvtalk);  
-                        }
-                   public void onResponse(String paramString) {
-                        Log.d("返回的EPG信息", paramString);
-                        try { 
-                            if (paramString.contains("hitokoto")) {
-                                JSONObject jsonObject = new JSONObject (paramString);
-                                String value = jsonObject.optString("hitokoto");
-                                tvtalk1.setText(value);
-                             } else {
-                                     tvtalk1.setText(ApiConfig.get().tvtalk); 
-                                    }  
-                        }catch (Exception e) {
-                         e.printStackTrace();
-                       } 
-                   }    
-          });       
-                            
+                            textView.invalidate();                                  
                         }                     
                         public View v = view;
                         public int p = position;
@@ -285,6 +262,28 @@ public class HomeActivity extends BaseActivity {
     private boolean jarInitOk = false;
 
     private void initData() {
+                               //    首页增加每日一言          
+
+            String tvtalurl = ApiConfig.get().daily_sentence;            
+            UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
+                   public void onFailure(int i, String str) {
+                        tvtalk1.setText(ApiConfig.get().tvtalk);  
+                        }
+                   public void onResponse(String paramString) {
+                        Log.d("返回的EPG信息", paramString);
+                        try { 
+                            if (paramString.contains("hitokoto")) {
+                                JSONObject jsonObject = new JSONObject (paramString);
+                                String value = jsonObject.optString("hitokoto");
+                                tvtalk1.setText(value);
+                             } else {
+                                     tvtalk1.setText(ApiConfig.get().tvtalk); 
+                                    }  
+                        }catch (Exception e) {
+                         e.printStackTrace();
+                       } 
+                   }    
+          }); 
         SourceBean home = ApiConfig.get().getHomeSourceBean();
         if (home != null && home.getName() != null && !home.getName().isEmpty())
             tvName.setText(home.getName());
