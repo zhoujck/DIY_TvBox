@@ -315,7 +315,7 @@ public class ApiConfig {
         // tvtalk
        tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
         // daily_sentence
-       tvtalk = DefaultConfig.safeJsonString(infoJson, "daily_sentence", "");
+       daily_sentence = DefaultConfig.safeJsonString(infoJson, "daily_sentence", "");
 
        
         
