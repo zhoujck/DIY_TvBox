@@ -161,8 +161,7 @@ public class HomeActivity extends BaseActivity {
                                 view.findViewById(R.id.tvFilterColor).setVisibility(View.GONE);
                             }
                             textView.invalidate();
-                        }
- //    首页增加每日一言          
+                       //    首页增加每日一言          
 
             String tvtalurl = ApiConfig.get().daily_sentence;            
             UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
@@ -183,8 +182,9 @@ public class HomeActivity extends BaseActivity {
                          e.printStackTrace();
                        } 
                    }    
-          });                      
-
+          });       
+                            
+                        }                     
                         public View v = view;
                         public int p = position;
                     }, 10);
