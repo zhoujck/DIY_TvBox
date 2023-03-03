@@ -110,7 +110,7 @@ public class HomeActivity extends BaseActivity {
         
  //    首页增加每日一言          
         @Override 
-        public void run() { 
+        public void run1() { 
             String tvtalurl = ApiConfig.get().daily_sentence;            
             UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
                    public void onFailure(int i, String str) {
