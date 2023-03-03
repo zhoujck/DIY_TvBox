@@ -162,6 +162,28 @@ public class HomeActivity extends BaseActivity {
                             }
                             textView.invalidate();
                         }
+ //    首页增加每日一言          
+
+            String tvtalurl = ApiConfig.get().daily_sentence;            
+            UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
+                   public void onFailure(int i, String str) {
+                        tvtalk1.setText(ApiConfig.get().tvtalk);  
+                        }
+                   public void onResponse(String paramString) {
+                        Log.d("返回的EPG信息", paramString);
+                        try { 
+                            if (paramString.contains("hitokoto")) {
+                                JSONObject jsonObject = new JSONObject (paramString);
+                                String value = jsonObject.optString("hitokoto");
+                                tvtalk1.setText(value);
+                             } else {
+                                     tvtalk1.setText(ApiConfig.get().tvtalk); 
+                                    }  
+                        }catch (Exception e) {
+                         e.printStackTrace();
+                       } 
+                   }    
+          });                      
 
                         public View v = view;
                         public int p = position;
@@ -238,32 +260,7 @@ public class HomeActivity extends BaseActivity {
                 HomeActivity.this.startActivity(intent);
                 return true;
             }
-        });
- 
- //    首页增加每日一言          
-
-            String tvtalurl = ApiConfig.get().daily_sentence;            
-            UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
-                   public void onFailure(int i, String str) {
-                        tvtalk1.setText(ApiConfig.get().tvtalk);  
-                        }
-                   public void onResponse(String paramString) {
-                        Log.d("返回的EPG信息", paramString);
-                        try { 
-                            if (paramString.contains("hitokoto")) {
-                                JSONObject jsonObject = new JSONObject (paramString);
-                                String value = jsonObject.optString("hitokoto");
-                                tvtalk1.setText(value);
-                             } else {
-                                     tvtalk1.setText(ApiConfig.get().tvtalk); 
-                                    }  
-                        }catch (Exception e) {
-                         e.printStackTrace();
-                       } 
-                   }    
-          });
-       
-        
+        });        
         setLoadSir(this.contentLayout);
         //mHandler.postDelayed(mFindFocus, 500);
     }
