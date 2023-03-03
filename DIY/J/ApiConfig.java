@@ -64,6 +64,7 @@ public class ApiConfig {
     private String spider = null;
     public String wallpaper = "";
     public String tvtalk = "";
+    public String daily_sentence = "";
 
     private SourceBean emptyHome = new SourceBean();
 
@@ -313,6 +314,8 @@ public class ApiConfig {
         wallpaper = DefaultConfig.safeJsonString(infoJson, "wallpaper", "");
         // tvtalk
        tvtalk = DefaultConfig.safeJsonString(infoJson, "tvtalk", "");
+        // daily_sentence
+       tvtalk = DefaultConfig.safeJsonString(infoJson, "daily_sentence", "");
 
        
         
