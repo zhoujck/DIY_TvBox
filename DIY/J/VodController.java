@@ -374,7 +374,7 @@ public class VodController extends BaseController {
                     updatePlayerCfgView();
                     listener.updatePlayerCfg();
                     listener.replay(false);
-//                    hideBottom();
+                    hideBottom();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -413,7 +413,7 @@ public class VodController extends BaseController {
                                     updatePlayerCfgView();
                                     listener.updatePlayerCfg();
                                     listener.replay(false);
-//                                    hideBottom();
+                                    hideBottom();
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -467,7 +467,7 @@ public class VodController extends BaseController {
                     updatePlayerCfgView();
                     listener.updatePlayerCfg();
                     listener.replay(false);
-//                    hideBottom();
+                    hideBottom();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -492,15 +492,15 @@ public class VodController extends BaseController {
             }
         });
         
-//        增加播放页面片头片尾时间重置,长按 1:30
+//      增加播放页面片头片尾时间重置,长按跳过 2:00 
         mPlayerTimeResetBtn.setOnLongClickListener(new OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                // myHandle.removeCallbacks(myRunnable);
                // myHandle.postDelayed(myRunnable, myHandleSeconds);
                 try {
-                    mPlayerConfig.put("et", 90);
-                    mPlayerConfig.put("st", 90);
+                    mPlayerConfig.put("et", 120);
+                    mPlayerConfig.put("st", 120);
                     updatePlayerCfgView();
                     listener.updatePlayerCfg();
                 } catch (JSONException e) {
