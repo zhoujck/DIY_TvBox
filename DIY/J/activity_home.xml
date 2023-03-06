@@ -40,7 +40,7 @@
             android:focusableInTouchMode="false"
             android:gravity="left|bottom"
             android:textAlignment="gravity"
-            android:paddingLeft="@dimen/vs_50"      
+            android:paddingLeft="@dimen/vs_20"      
             android:layout_weight="1"
             android:textColor="@android:color/white"
             android:textSize="@dimen/ts_24"
