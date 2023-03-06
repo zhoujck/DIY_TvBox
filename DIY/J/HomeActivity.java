@@ -273,7 +273,7 @@ public class HomeActivity extends BaseActivity {
                         try { 
                             if (paramString.contains("hitokoto")) {
                                 JSONObject jsonObject = new JSONObject (paramString);
-                                String value = jsonObject.optString("hitokoto" + "from_who");
+                                String value = jsonObject.optString("hitokoto");
                                 tvtalk1.setText(value);
                              } else {
                                      tvtalk1.setText(ApiConfig.get().tvtalk); 
