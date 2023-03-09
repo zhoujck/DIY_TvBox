@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Clone Project
-        run: git clone -b main --depth=1 https://github.com/zhoujck/takaBox99.git
+        run: git clone -b main --depth=1 https://github.com/zhoujck/takagen99.git
       - name: DIY
         run: |
           chmod +x diy-T.sh
