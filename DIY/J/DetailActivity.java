@@ -460,8 +460,8 @@ public class DetailActivity extends BaseActivity {
             setTextShow(tvPlayUrl, "播放地址：", vodInfo.seriesMap.get(vodInfo.playFlag).get(vodInfo.playIndex).url);
             Bundle bundle = new Bundle();
             //保存历史
-            insertVod(vodID, vodInfo);
-            bundle.putString("vodID", vodID);
+            insertVod(ID, vodInfo);
+            bundle.putString("vodID", ID);
 //            bundle.putSerializable("VodInfo", vodInfo);
             App.getInstance().setVodInfo(vodInfo);
             if (showPreview) {
@@ -739,11 +739,11 @@ public class DetailActivity extends BaseActivity {
                     mGridView.setSelection(index);
                     vodInfo.playIndex = index;
                     //保存历史
-                    insertVod(vodID, vodInfo);
+                    insertVod(ID, vodInfo);
                 } else if (event.obj instanceof JSONObject) {
                     vodInfo.playerCfg = ((JSONObject) event.obj).toString();
                     //保存历史
-                    insertVod(vodID, vodInfo);
+                    insertVod(ID, vodInfo);
                 }
 
             }
