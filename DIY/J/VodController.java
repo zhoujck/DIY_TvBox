@@ -31,6 +31,7 @@ import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.PlayerHelper;
 import com.github.tvbox.osc.util.ScreenUtils;
 import com.github.tvbox.osc.util.SubtitleHelper;
+import com.github.tvbox.osc.ui.activity.DetailActivity;
 import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
@@ -282,10 +283,11 @@ public class VodController extends BaseController {
             public void onClick(View view) {
                 boolean showPreview = Hawk.get(HawkConfig.SHOW_PREVIEW, true);
                 if (showPreview) {
-                    mTopRoot.setVisibility(GONE);
+                    mTopRoot1.setVisibility(GONE);
+                    mTopRoot2.setVisibility(GONE);                
                     mBottomRoot.setVisibility(GONE);
-                    mBack.setVisibility(GONE);
-                    mHandler.removeCallbacks(mHideBottomRunnable);
+                    //mBack.setVisibility(GONE);
+                    myHandle.removeCallbacks(myRunnable);
                     ((DetailActivity) mActivity).toggleFullPreview();
                 } else {
                     mActivity.finish();
