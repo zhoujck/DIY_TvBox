@@ -119,6 +119,7 @@ public class VodController extends BaseController {
     TextView mPlayerIJKBtn;
     TextView mPlayerRetry;
     TextView mPlayrefresh;
+    TextView mBack;
     //TextView finishAt;
     
     public TextView mPlayerTimeStartEndText;
@@ -197,6 +198,7 @@ public class VodController extends BaseController {
         mZimuBtn = findViewById(R.id.zimu_select);
         mAudioTrackBtn = findViewById(R.id.audio_track_select);
         mLandscapePortraitBtn = findViewById(R.id.landscape_portrait);
+        mBack = findViewById(R.id.tvBackButton);
         //finishAt = findViewById(R.id.tv_finish_at);
         initSubtitleInfo();
 
@@ -274,6 +276,22 @@ public class VodController extends BaseController {
                 hideBottom();
             }
         });
+//添加返回detail activity
+        mBack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean showPreview = Hawk.get(HawkConfig.SHOW_PREVIEW, true);
+                if (showPreview) {
+                    mTopRoot.setVisibility(GONE);
+                    mBottomRoot.setVisibility(GONE);
+                    mBack.setVisibility(GONE);
+                    mHandler.removeCallbacks(mHideBottomRunnable);
+                    ((DetailActivity) mActivity).toggleFullPreview();
+                } else {
+                    mActivity.finish();
+                }
+            }
+        });        
         mPlayrefresh.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
