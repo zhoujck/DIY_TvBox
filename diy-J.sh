@@ -57,7 +57,7 @@ cp $CURRENT_DIR/DIY/J/VodController.java $CURRENT_DIR/$DIR/app/src/main/java/com
 cp $CURRENT_DIR/DIY/J/LivePlayActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
 
 #换源
-cp $CURRENT_DIR/DIY/J/DetailActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/DetailActivity.java
+#cp $CURRENT_DIR/DIY/J/DetailActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/DetailActivity.java
 
 #修改播放器进度条消失时间
 sed -i 's/10000/6000/g'  $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
