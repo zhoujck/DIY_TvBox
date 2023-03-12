@@ -525,7 +525,7 @@ public class LivePlayActivity extends BaseActivity {
             }
             //else {
              //   ll_epg.setVisibility(View.GONE);
-            }
+           // }
             
             if (channel_Name == null || channel_Name.getSourceNum() <= 0) {
                 ((TextView) findViewById(R.id.tv_source)).setText("1/1");
