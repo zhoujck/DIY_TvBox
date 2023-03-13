@@ -202,7 +202,7 @@ public class LivePlayActivity extends BaseActivity {
         context = this;
         epgStringAddress = Hawk.get(HawkConfig.EPG_URL,"");
         if(epgStringAddress == null || epgStringAddress.length()<5)
-            epgStringAddress = "https://diyp.112114.xyz/";
+        epgStringAddress = "http://epg.51zmt.top:8000/api/diyp/";
 
         setLoadSir(findViewById(R.id.live_root));
         mVideoView = findViewById(R.id.mVideoView);
@@ -241,7 +241,7 @@ public class LivePlayActivity extends BaseActivity {
         divLoadEpgleft = (View) findViewById(R.id.divLoadEpgleft);
         divEpg = (LinearLayout) findViewById(R.id.divEPG);
 
-             //右上角图片旋转
+        //右上角图片旋转
         objectAnimator = ObjectAnimator.ofFloat(iv_circle_bg,"rotation", 360.0f);
         objectAnimator.setDuration(5000);
         objectAnimator.setRepeatCount(-1);
@@ -413,9 +413,9 @@ public class LivePlayActivity extends BaseActivity {
         timeFormat.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
         String[] epgInfo = EpgUtil.getEpgInfo(channelName);
         String epgTagName = channelName;
-        updateChannelIcon(channelName, epgInfo == null ? null : epgInfo[0]);
-        if (epgInfo != null && !epgInfo[1].isEmpty()) {
-            epgTagName = epgInfo[1];
+        updateChannelIcon(channelName, epgInfo == null ? null : epgInfo[1]);
+        if (epgInfo != null && !epgInfo[0].isEmpty()) {
+            epgTagName = epgInfo[0];
         }
         String finalChannelName = channelName;
         epgListAdapter.CanBack(currentLiveChannelItem.getinclude_back());
