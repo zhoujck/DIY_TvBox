@@ -468,7 +468,7 @@ public class LivePlayActivity extends BaseActivity {
         if (isSHIYI)
             return;
         if (channel_Name.getChannelName() != null) {
-            ((TextView) findViewById(R.id.tv_channel_bar_name)).setText(channel_Name.getChannelName());
+            //((TextView) findViewById(R.id.tv_channel_bar_name)).setText(channel_Name.getChannelName());
             ((TextView) findViewById(R.id.tv_channel_bottom_number)).setText("" + channel_Name.getChannelNum());
             tip_epg1.setText("暂无信息");
             ((TextView) findViewById(R.id.tv_current_program_name)).setText("");
@@ -512,7 +512,7 @@ public class LivePlayActivity extends BaseActivity {
             }
             
 
-            if(!tip_epg1.getText().equals("暂无信息")){
+            //if(!tip_epg1.getText().equals("暂无信息")){
                 ll_epg.setVisibility(View.VISIBLE);
                 countDownTimer = new CountDownTimer(6000, 1000) {//底部epg隐藏时间设定
                     public void onTick(long j) {
@@ -522,7 +522,7 @@ public class LivePlayActivity extends BaseActivity {
                     }
                 };
                 countDownTimer.start();
-            }
+           // }
             //else {
              //   ll_epg.setVisibility(View.GONE);
            // }
