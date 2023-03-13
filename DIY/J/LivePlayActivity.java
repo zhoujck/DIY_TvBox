@@ -413,9 +413,9 @@ public class LivePlayActivity extends BaseActivity {
         timeFormat.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
         String[] epgInfo = EpgUtil.getEpgInfo(channelName);
         String epgTagName = channelName;
-        updateChannelIcon(channelName, epgInfo == null ? null : epgInfo[1]);
-        if (epgInfo != null && !epgInfo[0].isEmpty()) {
-            epgTagName = epgInfo[0];
+        updateChannelIcon(channelName, epgInfo == null ? null : epgInfo[0]);
+        if (epgInfo != null && !epgInfo[1].isEmpty()) {
+            epgTagName = epgInfo[1];
         }
         String finalChannelName = channelName;
         epgListAdapter.CanBack(currentLiveChannelItem.getinclude_back());
@@ -481,7 +481,7 @@ public class LivePlayActivity extends BaseActivity {
                 ArrayList arrayList = (ArrayList) hsEpg.get(savedEpgKey);
                 if (arrayList != null && arrayList.size() > 0) {
                     Date date = new Date();
-                    int size = arrayList.size() - 1;
+                    int size = arrayList.size();
                     while (size >= 0) {
                         if (date.after(((Epginfo) arrayList.get(size)).startdateTime) & date.before(((Epginfo) arrayList.get(size)).enddateTime)) {
                         //if (new Date().compareTo(((Epginfo) arrayList.get(size)).startdateTime) >= 0) {
