@@ -442,7 +442,7 @@ public class LivePlayActivity extends BaseActivity {
                     if (paramString.contains("epg_data")) {
                         final JSONArray jSONArray = new JSONObject(paramString).optJSONArray("epg_data");
                         if (jSONArray != null)
-                            for (int b = 1; b < jSONArray.length(); b++) {
+                            for (int b = 0; b <= jSONArray.length(); b++) {
                                 JSONObject jSONObject = jSONArray.getJSONObject(b);
                                 //Epginfo epgbcinfo = new Epginfo(jSONObject.optString("title"), jSONObject.optString("start"), jSONObject.optString("end"));
                                 Epginfo epgbcinfo = new Epginfo(date,jSONObject.optString("title"), date, jSONObject.optString("start"), jSONObject.optString("end"),b);
@@ -468,7 +468,7 @@ public class LivePlayActivity extends BaseActivity {
         if (isSHIYI)
             return;
         if (channel_Name.getChannelName() != null) {
-            //((TextView) findViewById(R.id.tv_channel_bar_name)).setText(channel_Name.getChannelName());
+            ((TextView) findViewById(R.id.tv_channel_bar_name)).setText(channel_Name.getChannelName());
             ((TextView) findViewById(R.id.tv_channel_bottom_number)).setText("" + channel_Name.getChannelNum());
             tip_epg1.setText("暂无信息");
             ((TextView) findViewById(R.id.tv_current_program_name)).setText("");
@@ -561,6 +561,7 @@ public class LivePlayActivity extends BaseActivity {
             imgLiveIcon.setVisibility(View.INVISIBLE);
             //liveIconNullText.setText("" + channel_Name.getChannelNum());
         } else {
+            ((TextView) findViewById(R.id.tv_channel_bar_name)).setVisibility(View.INVISIBLE);
             imgLiveIcon.setVisibility(View.VISIBLE);
             Picasso.get().load(logoUrl).placeholder(R.drawable.app_banner).into(imgLiveIcon);
             liveIconNullBg.setVisibility(View.INVISIBLE);
