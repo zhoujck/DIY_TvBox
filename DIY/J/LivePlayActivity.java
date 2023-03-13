@@ -383,10 +383,10 @@ public class LivePlayActivity extends BaseActivity {
             epgListAdapter.CanBack(currentLiveChannelItem.getinclude_back());
             epgListAdapter.setNewData(epgdata);
 
-            int i = 0;
+            int i = -1;
             int size = epgdata.size() - 1;
             while (size >= 0) {
-                if (new Date().compareTo(((Epginfo) epgdata.get(size)).startdateTime) >= 0) {
+                if (new Date().compareTo(((Epginfo) epgdata.get(size)).startdateTime) > 0) {
                     break;
                 }
                 size--;
