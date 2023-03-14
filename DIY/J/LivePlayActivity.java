@@ -202,7 +202,7 @@ public class LivePlayActivity extends BaseActivity {
         context = this;
         epgStringAddress = Hawk.get(HawkConfig.EPG_URL,"");
         if(epgStringAddress == null || epgStringAddress.length()<5)
-        epgStringAddress = "http://epg.51zmt.top:8000/api/diyp/";
+            epgStringAddress = "https://diyp.112114.xyz/";
 
         setLoadSir(findViewById(R.id.live_root));
         mVideoView = findViewById(R.id.mVideoView);
@@ -241,7 +241,7 @@ public class LivePlayActivity extends BaseActivity {
         divLoadEpgleft = (View) findViewById(R.id.divLoadEpgleft);
         divEpg = (LinearLayout) findViewById(R.id.divEPG);
 
-        //右上角图片旋转
+             //右上角图片旋转
         objectAnimator = ObjectAnimator.ofFloat(iv_circle_bg,"rotation", 360.0f);
         objectAnimator.setDuration(5000);
         objectAnimator.setRepeatCount(-1);
@@ -430,7 +430,7 @@ public class LivePlayActivity extends BaseActivity {
         UrlHttpUtil.get(url, new CallBackUtil.CallBackString() {
             public void onFailure(int i, String str) {
                 showEpg(date, new ArrayList());
-                //showBottomEpg();
+                showBottomEpg();
             }
 
             public void onResponse(String paramString) {
@@ -480,11 +480,9 @@ public class LivePlayActivity extends BaseActivity {
                 updateChannelIcon(channel_Name.getChannelName(), epgInfo == null ? null : epgInfo[0]);
                 ArrayList arrayList = (ArrayList) hsEpg.get(savedEpgKey);
                 if (arrayList != null && arrayList.size() > 0) {
-                    Date date = new Date();
-                    int size = arrayList.size();
+                    int size = arrayList.size() - 1;
                     while (size >= 0) {
-                        if (date.after(((Epginfo) arrayList.get(size)).startdateTime) & date.before(((Epginfo) arrayList.get(size)).enddateTime)) {
-                        //if (new Date().compareTo(((Epginfo) arrayList.get(size)).startdateTime) >= 0) {
+                        if (new Date().compareTo(((Epginfo) arrayList.get(size)).startdateTime) >= 0) {
                             tip_epg1.setText(((Epginfo) arrayList.get(size)).start + "--" + ((Epginfo) arrayList.get(size)).end);
                             ((TextView) findViewById(R.id.tv_current_program_name)).setText(((Epginfo) arrayList.get(size)).title);
                             if (size != arrayList.size() - 1) {
@@ -512,7 +510,7 @@ public class LivePlayActivity extends BaseActivity {
             }
             
 
-            //if(!tip_epg1.getText().equals("暂无信息")){
+            if(!tip_epg1.getText().equals("暂无信息")){
                 ll_epg.setVisibility(View.VISIBLE);
                 countDownTimer = new CountDownTimer(6000, 1000) {//底部epg隐藏时间设定
                     public void onTick(long j) {
@@ -522,10 +520,9 @@ public class LivePlayActivity extends BaseActivity {
                     }
                 };
                 countDownTimer.start();
-           // }
-            //else {
-             //   ll_epg.setVisibility(View.GONE);
-           // }
+            }else {
+                ll_epg.setVisibility(View.GONE);
+            }
             
             if (channel_Name == null || channel_Name.getSourceNum() <= 0) {
                 ((TextView) findViewById(R.id.tv_source)).setText("1/1");
@@ -557,9 +554,9 @@ public class LivePlayActivity extends BaseActivity {
     private void updateChannelIcon(String channelName, String logoUrl) {
         if (StringUtils.isEmpty(logoUrl)) {
             liveIconNullBg.setVisibility(View.VISIBLE);
-            //liveIconNullText.setVisibility(View.VISIBLE);
+            liveIconNullText.setVisibility(View.VISIBLE);
             imgLiveIcon.setVisibility(View.INVISIBLE);
-            //liveIconNullText.setText("" + channel_Name.getChannelNum());
+            liveIconNullText.setText("" + channel_Name.getChannelNum());
         } else {
             imgLiveIcon.setVisibility(View.VISIBLE);
             Picasso.get().load(logoUrl).placeholder(R.drawable.app_banner).into(imgLiveIcon);
