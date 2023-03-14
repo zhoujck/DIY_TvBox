@@ -376,37 +376,7 @@ public class LivePlayActivity extends BaseActivity {
     }
     //获取EPG并存储 // 百川epg  DIYP epg   51zmt epg ------- 自建EPG格式输出格式请参考 51zmt
     private List<Epginfo> epgdata = new ArrayList<>();
-
-    private void showEpg(Date date, ArrayList<Epginfo> arrayList) {
-        if (arrayList != null && arrayList.size() > 0) {
-            epgdata = arrayList;
-            epgListAdapter.CanBack(currentLiveChannelItem.getinclude_back());
-            epgListAdapter.setNewData(epgdata);
-
-            int i = -1;
-            int size = epgdata.size() - 1;
-            while (size >= 0) {
-                if (new Date().compareTo(((Epginfo) epgdata.get(size)).startdateTime) >= 0) {
-                    break;
-                }
-                size--;
-            }
-            i = size;
-            if (i >= 0 && new Date().compareTo(epgdata.get(i).enddateTime) <= 0) {
-                mRightEpgList.setSelectedPosition(i);
-                mRightEpgList.setSelection(i);
-                epgListAdapter.setSelectedEpgIndex(i);
-                int finalI = i;
-                mRightEpgList.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        mRightEpgList.smoothScrollToPosition(finalI);
-                    }
-                });
-            }
-        }
-    }
-
+    
     public void getEpg(Date date) {
         String channelName = channel_Name.getChannelName();
         SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -422,7 +392,7 @@ public class LivePlayActivity extends BaseActivity {
         //epgListAdapter.updateData(date, new ArrayList<>());
 
         String url;
-       if(epgStringAddress.contains("{name}") && epgStringAddress.contains("{date}")){
+        if(epgStringAddress.contains("{name}") && epgStringAddress.contains("{date}")){
            url= epgStringAddress.replace("{name}",URLEncoder.encode(epgTagName)).replace("{date}",timeFormat.format(date));  
         }else {
            url= epgStringAddress + "?ch="+ URLEncoder.encode(epgTagName.replace("+", "[add]").toString()) + "&date=" + timeFormat.format(date);
@@ -461,6 +431,37 @@ public class LivePlayActivity extends BaseActivity {
                 showBottomEpg();
             }
         });
+    }
+    
+    // 侧边EPG
+    private void showEpg(Date date, ArrayList<Epginfo> arrayList) {
+        if (arrayList != null && arrayList.size() > 0) {
+            epgdata = arrayList;
+            epgListAdapter.CanBack(currentLiveChannelItem.getinclude_back());
+            epgListAdapter.setNewData(epgdata);
+
+            int i = -1;
+            int size = epgdata.size() - 1;
+            while (size >= 0) {
+                if (new Date().compareTo(((Epginfo) epgdata.get(size)).startdateTime) >= 0) {
+                    break;
+                }
+                size--;
+            }
+            i = size;
+            if (i >= 0 && new Date().compareTo(epgdata.get(i).enddateTime) <= 0) {
+                mRightEpgList.setSelectedPosition(i);
+                mRightEpgList.setSelection(i);
+                epgListAdapter.setSelectedEpgIndex(i);
+                int finalI = i;
+                mRightEpgList.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRightEpgList.smoothScrollToPosition(finalI);
+                    }
+                });
+            }
+        }
     }
 
     //显示底部EPG
