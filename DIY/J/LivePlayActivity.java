@@ -437,7 +437,7 @@ public class LivePlayActivity extends BaseActivity {
 
                 ArrayList arrayList = new ArrayList();
 
-                Log.d("返回的EPG信息", paramString);
+                //Log.d("返回的EPG信息", paramString);
                 try {
                     if (paramString.contains("epg_data")) {
                         final JSONArray jSONArray = new JSONObject(paramString).optJSONArray("epg_data");
@@ -445,10 +445,11 @@ public class LivePlayActivity extends BaseActivity {
                             for (int b = 0; b < jSONArray.length(); b++) {
                                 JSONObject jSONObject = jSONArray.getJSONObject(b);
                                 //Epginfo epgbcinfo = new Epginfo(jSONObject.optString("title"), jSONObject.optString("start"), jSONObject.optString("end"));
-                                Epginfo epgbcinfo = new Epginfo(date,jSONObject.optString("title"), date, jSONObject.optString("start"), jSONObject.optString("end"),b);
+                                //Epginfo epgbcinfo = new Epginfo(date,jSONObject.optString("title"), date, jSONObject.optString("start"), jSONObject.optString("end"),b);
+                                Epginfo epgbcinfo = new Epginfo(date,jSONObject.optString("title"), jSONObject.optString("start"), jSONObject.optString("end"),b);
                                 arrayList.add(epgbcinfo);
                                 //Log.d("EPG信息", jSONObject.optString("title") + jSONObject.optString("start") + jSONObject.optString("end"));
-                                Log.d("EPG信息:", day +"  "+ jSONObject.optString("start") +" - "+jSONObject.optString("end") + "  " +jSONObject.optString("title"));
+                                //Log.d("EPG信息:", day +"  "+ jSONObject.optString("start") +" - "+jSONObject.optString("end") + "  " +jSONObject.optString("title"));
                             }
                     }
                 } catch (JSONException jSONException) {
@@ -481,7 +482,7 @@ public class LivePlayActivity extends BaseActivity {
                 ArrayList arrayList = (ArrayList) hsEpg.get(savedEpgKey);
                 if (arrayList != null && arrayList.size() > 0) {
                     int size = arrayList.size() - 1;
-                    while (size >= 0); {
+                    while (size >= 0) {
                         if (new Date().compareTo(((Epginfo) arrayList.get(size)).startdateTime) >= 0) {
                             tip_epg1.setText(((Epginfo) arrayList.get(size)).start + "--" + ((Epginfo) arrayList.get(size)).end);
                             ((TextView) findViewById(R.id.tv_current_program_name)).setText(((Epginfo) arrayList.get(size)).title);
