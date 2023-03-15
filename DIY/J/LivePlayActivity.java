@@ -63,6 +63,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import org.apache.commons.lang3.StringUtils;
 import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.model.Response;
 import com.orhanobut.hawk.Hawk;
@@ -202,7 +203,7 @@ public class LivePlayActivity extends BaseActivity {
         context = this;
         epgStringAddress = Hawk.get(HawkConfig.EPG_URL,"");
         if(epgStringAddress == null || epgStringAddress.length()<5)
-            epgStringAddress = "https://diyp.112114.xyz/";
+            epgStringAddress = "http://epg.51zmt.top:8000/api/diyp/";
 
         setLoadSir(findViewById(R.id.live_root));
         mVideoView = findViewById(R.id.mVideoView);
@@ -397,13 +398,21 @@ public class LivePlayActivity extends BaseActivity {
         }else {
            url= epgStringAddress + "?ch="+ URLEncoder.encode(epgTagName.replace("+", "[add]").toString()) + "&date=" + timeFormat.format(date);
         }
-        UrlHttpUtil.get(url, new CallBackUtil.CallBackString() {
-            public void onFailure(int i, String str) {
-                showEpg(date, new ArrayList());
-                showBottomEpg();
-            }
+        
+        OkGo.<String>get(url).tag(this).execute(new StringCallback() {
+            
+        @Override
+        public void onSuccess(Response<String> response) {
+            Log.i("get",response.body());						
+            String paramString = response.body();
 
-            public void onResponse(String paramString) {
+//         UrlHttpUtil.get(url, new CallBackUtil.CallBackString() {
+//             public void onFailure(int i, String str) {
+//                 showEpg(date, new ArrayList());
+//                 showBottomEpg();
+//             }
+
+//             public void onResponse(String paramString) {
 
                 ArrayList arrayList = new ArrayList();
 
@@ -414,11 +423,9 @@ public class LivePlayActivity extends BaseActivity {
                         if (jSONArray != null)
                             for (int b = 0; b < jSONArray.length(); b++) {
                                 JSONObject jSONObject = jSONArray.getJSONObject(b);
-                                //Epginfo epgbcinfo = new Epginfo(jSONObject.optString("title"), jSONObject.optString("start"), jSONObject.optString("end"));
                                 Epginfo epgbcinfo = new Epginfo(date,jSONObject.optString("title"), date, jSONObject.optString("start"), jSONObject.optString("end"),b);
                                 arrayList.add(epgbcinfo);
-                                //Log.d("EPG信息", jSONObject.optString("title") + jSONObject.optString("start") + jSONObject.optString("end"));
-                                //Log.d("EPG信息:", day +"  "+ jSONObject.optString("start") +" - "+jSONObject.optString("end") + "  " +jSONObject.optString("title"));
+                                Log.d("EPG信息:", day +"  "+ jSONObject.optString("start") +" - "+jSONObject.optString("end") + "  " +jSONObject.optString("title"));
                             }
                     }
                 } catch (JSONException jSONException) {
@@ -430,6 +437,12 @@ public class LivePlayActivity extends BaseActivity {
                     hsEpg.put(savedEpgKey, arrayList);
                 showBottomEpg();
             }
+                @Override
+                public void onError(Response<String> response) {
+                //super.onError(response);
+				    showEpg(date, new ArrayList());
+				    showBottomEpg();
+                }          
         });
     }
     
