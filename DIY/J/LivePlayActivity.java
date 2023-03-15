@@ -394,33 +394,18 @@ public class LivePlayActivity extends BaseActivity {
 
         String url;
         if(epgStringAddress.contains("{name}") && epgStringAddress.contains("{date}")){
-           url= epgStringAddress.replace("{name}",URLEncoder.encode(epgTagName)).replace("{date}",timeFormat.format(date));  
+            url= epgStringAddress.replace("{name}",URLEncoder.encode(epgTagName)).replace("{date}",timeFormat.format(date));
         }else {
-           url= epgStringAddress + "?ch="+ URLEncoder.encode(epgTagName.replace("+", "[add]").toString()) + "&date=" + timeFormat.format(date);
+            url= epgStringAddress + "?ch="+ URLEncoder.encode(epgTagName) + "&date=" + timeFormat.format(date);
         }
-        
-        OkGo.<String>get(url).tag(this).execute(new StringCallback() {
-            
-        @Override
-        public void onSuccess(Response<String> response) {
-            Log.i("get",response.body());						
-            String paramString = response.body();
-
-//         UrlHttpUtil.get(url, new CallBackUtil.CallBackString() {
-//             public void onFailure(int i, String str) {
-//                 showEpg(date, new ArrayList());
-//                 showBottomEpg();
-//             }
-
-//             public void onResponse(String paramString) {
-
-                ArrayList arrayList = new ArrayList();
-
-                //Log.d("返回的EPG信息", paramString);
-                try {
-                    if (paramString.contains("epg_data")) {
-                        final JSONArray jSONArray = new JSONObject(paramString).optJSONArray("epg_data");
-                        if (jSONArray != null)
+        OkGo.<String>get(url).execute(new StringCallback() {
+                    public void onSuccess(Response<String> response) {						
+			String paramString = response.body();	
+			ArrayList arrayList = new ArrayList();
+                        try {
+                        if (paramString.contains("epg_data")) {
+                            final JSONArray jSONArray = new JSONObject(paramString).optJSONArray("epg_data");
+                            if (jSONArray != null)
                             for (int b = 0; b < jSONArray.length(); b++) {
                                 JSONObject jSONObject = jSONArray.getJSONObject(b);
                                 Epginfo epgbcinfo = new Epginfo(date,jSONObject.optString("title"), date, jSONObject.optString("start"), jSONObject.optString("end"),b);
@@ -428,22 +413,22 @@ public class LivePlayActivity extends BaseActivity {
                                 Log.d("EPG信息:", day +"  "+ jSONObject.optString("start") +" - "+jSONObject.optString("end") + "  " +jSONObject.optString("title"));
                             }
                     }
+
                 } catch (JSONException jSONException) {
                     jSONException.printStackTrace();
                 }
                 showEpg(date, arrayList);
-                 String savedEpgKey = channelName + "_" + liveEpgDateAdapter.getItem(liveEpgDateAdapter.getSelectedIndex()).getDatePresented();               
+                String savedEpgKey = channelName + "_" + liveEpgDateAdapter.getItem(liveEpgDateAdapter.getSelectedIndex()).getDatePresented();
                 if (!hsEpg.contains(savedEpgKey))
                     hsEpg.put(savedEpgKey, arrayList);
-                showBottomEpg();
-            }
-                @Override
-                public void onError(Response<String> response) {
-                //super.onError(response);
-				    showEpg(date, new ArrayList());
-				    showBottomEpg();
-                }          
-        });
+                    showBottomEpg();   
+                    }
+                     public void onError(Response<String> response) {
+                         //super.onError(response);
+			 showEpg(date, new ArrayList());
+                         showBottomEpg();
+                     }
+                });
     }
     
     // 侧边EPG
