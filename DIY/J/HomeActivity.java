@@ -18,6 +18,8 @@ import android.view.animation.BounceInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.ClipboardManager;
+import android.content.ClipData;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
