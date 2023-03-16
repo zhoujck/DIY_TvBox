@@ -268,7 +268,7 @@ public class HomeActivity extends BaseActivity {
             String tvtalurl = ApiConfig.get().daily_sentence;            
             UrlHttpUtil.get(tvtalurl, new CallBackUtil.CallBackString() {
                    public void onFailure(int i, String str) {
-                        tvtalk1.setText(ApiConfig.get().tvtalk);  
+                        tvtalk1.setText(ApiConfig.get().daily_sentence);  
                         }
                    public void onResponse(String paramString) {
                         Log.d("返回的EPG信息", paramString);
@@ -278,7 +278,7 @@ public class HomeActivity extends BaseActivity {
                                 String value = jsonObject.optString("hitokoto") + " ——" +jsonObject.optString("from_who");
                                 tvtalk1.setText(value);
                              } else {
-                                     tvtalk1.setText(ApiConfig.get().tvtalk); 
+                                     tvtalk1.setText(ApiConfig.get().daily_sentence); 
                                     }  
                         }catch (Exception e) {
                          e.printStackTrace();
@@ -292,7 +292,7 @@ public class HomeActivity extends BaseActivity {
                 //获取剪切板管理器
                 ClipboardManager cm = (ClipboardManager)getSystemService(mContext.CLIPBOARD_SERVICE);
                 //设置内容到剪切板
-                cm.setPrimaryClip(ClipData.newPlainText(null, tvtalk1.getText().toString()));
+                cm.setPrimaryClip(ClipData.newPlainText(null, tvtalk1.getText().toString().replace("新版下载","")));
                 Toast.makeText(HomeActivity.this, "已复制", Toast.LENGTH_SHORT).show();
             }
         });     
