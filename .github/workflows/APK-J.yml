@@ -31,7 +31,7 @@ jobs:
         run: |
           mkdir -p ${{ github.workspace }}/apk/
           for file in `find ~ -name "*.apk" -print`; do
-            cp "$file" ${{ github.workspace }}/apk/
+            mv "$file" ${{ github.workspace }}/apk/
           done
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
