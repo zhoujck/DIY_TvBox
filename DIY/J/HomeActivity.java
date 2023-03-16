@@ -283,6 +283,18 @@ public class HomeActivity extends BaseActivity {
                        } 
                    }    
           }); 
+        
+       tvtalk1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //获取剪切板管理器
+                ClipboardManager cm = (ClipboardManager)getSystemService(mContext.CLIPBOARD_SERVICE);
+                //设置内容到剪切板
+                cm.setPrimaryClip(ClipData.newPlainText(null, tvtalk1.getText().toString()));
+                Toast.makeText(HomeActivity.this, "已复制", Toast.LENGTH_SHORT).show();
+            }
+        });     
+        
         SourceBean home = ApiConfig.get().getHomeSourceBean();
         if (home != null && home.getName() != null && !home.getName().isEmpty())
             tvName.setText(home.getName());
