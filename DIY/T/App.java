@@ -75,7 +75,7 @@ public class App extends MultiDexApplication {
         putDefault(HawkConfig.HOME_SEARCH_POSITION, false);// 上方/下方
         putDefault(HawkConfig.HOME_MENU_POSITION, false);// 上方/下方
         putDefault(HawkConfig.HOME_SHOW_SOURCE, true);// 开启/关闭
-        putDefault(HawkConfig.HOME_REC_STYLE, false);// 开启/关闭
+        putDefault(HawkConfig.HOME_REC_STYLE, true);// 开启/关闭
         putDefault(HawkConfig.HOME_NUM, 0);    // 0=30 1=50 2=70
 
 
