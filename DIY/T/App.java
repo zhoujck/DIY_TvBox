@@ -72,10 +72,11 @@ public class App extends MultiDexApplication {
         putDefault(HawkConfig.HOME_REC, 0);       // Home Rec 0=豆瓣, 1=推荐, 2=历史
         putDefault(HawkConfig.PLAY_TYPE, 1);      // Player   0=系统, 1=IJK, 2=Exo
         putDefault(HawkConfig.IJK_CODEC, "硬解码");// IJK Render 软解码, 硬解码
-        putDefault(HawkConfig.HOME_SEARCH_POSITION, true);// 上方/下方
-        putDefault(HawkConfig.HOME_MENU_POSITION, true);// 上方/下方
+        putDefault(HawkConfig.HOME_SEARCH_POSITION, false);// 上方/下方
+        putDefault(HawkConfig.HOME_MENU_POSITION, false);// 上方/下方
         putDefault(HawkConfig.HOME_SHOW_SOURCE, true);// 开启/关闭
-        //putDefault(HawkConfig.HISTORY_NUM, 0);    // 0=30 1=50 2=70
+        putDefault(HawkConfig.HOME_REC_STYLE, false);// 开启/关闭
+        putDefault(HawkConfig.HOME_NUM, 0);    // 0=30 1=50 2=70
 
 
     }
