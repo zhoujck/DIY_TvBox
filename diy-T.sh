@@ -32,6 +32,26 @@ mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app
 #背景修改
 mv $CURRENT_DIR/DIY/app_bg_black.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
 
+# 主页UI调整
+cp $CURRENT_DIR/DIY/T/fragment_user.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_user.xml
+
+# 主页增加每日一言/去除部分图标
+cp $CURRENT_DIR/DIY/T/ApiConfig.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
+cp $CURRENT_DIR/DIY/T/activity_home.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_home.xml
+cp $CURRENT_DIR/DIY/T/HomeActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
+
+# 默认设置修改
+cp $CURRENT_DIR/DIY/T/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java 
+
+# 取消首页从通知栏位置布置
+cp $CURRENT_DIR/DIY/T/BaseActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/BaseActivity.java 
+
+# 直播添加epg112114支持
+cp $CURRENT_DIR/DIY/T/LivePlayActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
+
+# 搜索改为爱奇艺热词，支持首字母联想
+cp $CURRENT_DIR/DIY/T/SearchActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/SearchActivity.java
+
 #长按倍速修改为2
 sed -i 's/3.0/2.0/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
 
