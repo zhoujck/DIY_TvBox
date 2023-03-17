@@ -1,4 +1,4 @@
-name: APK-T Build
+name: APK-T-Jar Build
 
 on:
 #  push:
