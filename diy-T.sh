@@ -26,6 +26,7 @@ sed -i 's#"app_source"><#"app_source">https://gitee.com/zhoujck/tv/raw/master/bo
 
 #图标修改
 mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_icon.png
+cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_banner.png
 
 #背景修改
 mv $CURRENT_DIR/DIY/app_bg_black.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
