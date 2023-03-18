@@ -803,7 +803,10 @@ public class HomeActivity extends BaseActivity {
 
     // Site Switch on Home Button
     void showSiteSwitch() {
-        List<SourceBean> sites = ApiConfig.get().getSourceBeanList();
+        List<SourceBean> sites = new ArrayList<>();
+        for (SourceBean sb : ApiConfig.get().getSourceBeanList()) {
+            if (sb.getHide() == 0) sites.add(sb);
+        }
         if (sites.size() > 0) {
             SelectDialog<SourceBean> dialog = new SelectDialog<>(HomeActivity.this);
 
