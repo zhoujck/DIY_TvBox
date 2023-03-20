@@ -145,6 +145,7 @@
             android:layout_marginStart="@dimen/vs_15"
             android:layout_marginLeft="@dimen/vs_15"
             android:focusable="false"
+            android:clickable="false"
             android:focusableInTouchMode="false"
             android:gravity="right|center_vertical"
             android:textAlignment="gravity"
