@@ -110,14 +110,14 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
     // 0 : 3-Button NavBar
     // 1 : 2-Button NavBar (Android P)
     // 2 : Gesture full screen
-    public static int isEdgeToEdgeEnabled(Context context) {
-        Resources resources = context.getResources();
-        int resourceId = resources.getIdentifier("config_navBarInteractionMode", "integer", "android");
-        if (resourceId > 0) {
-            return resources.getInteger(resourceId);
-        }
-        return 0;
-    }
+  //  public static int isEdgeToEdgeEnabled(Context context) {
+  //      Resources resources = context.getResources();
+ //       int resourceId = resources.getIdentifier("config_navBarInteractionMode", "integer", "android");
+ //       if (resourceId > 0) {
+//            return resources.getInteger(resourceId);
+//        }
+//        return 0;
+ //   }
 
     public void hideSysBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
