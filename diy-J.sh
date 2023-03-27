@@ -20,12 +20,9 @@ echo "RELEASE_KEY_ALIAS=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 echo "RELEASE_STORE_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 echo "RELEASE_KEY_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 
-#版本号
-sed -i 's/1.0.0/1.4.0/g' $CURRENT_DIR/$DIR/app/build.gradle
-sed -i 's/1.0.0/1.4.0/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
 
 # 名称修改
-sed -i 's/TVBox/糖果TV Pro/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
+sed -i 's/TVBox/糖果影视/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
 
 # 图标修改
 cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_banner.png
