@@ -20,8 +20,8 @@ echo "RELEASE_STORE_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 echo "RELEASE_KEY_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 
 #名称修改
-sed -i 's/TVBox/糖果TV/g' $CURRENT_DIR/$DIR/app/src/main/res/values-zh/strings.xml
-sed -i 's/TVBox/糖果TV/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
+sed -i 's/TVBox/糖果影视/g' $CURRENT_DIR/$DIR/app/src/main/res/values-zh/strings.xml
+sed -i 's/TVBox/糖果影视/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
 sed -i 's#"app_source"><#"app_source">https://gitee.com/zhoujck/tv/raw/master/box<#g' $CURRENT_DIR/$DIR/app/src/main/res/values-zh/strings.xml
 
 #图标修改
@@ -43,7 +43,7 @@ cp $CURRENT_DIR/DIY/T/HomeActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/
 # 默认设置修改
 cp $CURRENT_DIR/DIY/T/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java 
 
-# 取消首页从通知栏位置布置
+# 整体布局修改
 cp $CURRENT_DIR/DIY/T/BaseActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/BaseActivity.java 
 
 # 直播添加epg112114支持
