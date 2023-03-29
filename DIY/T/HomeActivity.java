@@ -386,14 +386,23 @@ public class HomeActivity extends BaseActivity {
                    }    
           }); 
         
-       tvtalk1.setOnClickListener(new View.OnClickListener() {
+        
+         tvName.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onLongClick(View v) {
+                reloadHome();
+                return true;
+            }
+        });
+        
+       tvtalk1.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public void onLongClick(View v) {
                 //获取剪切板管理器
                 ClipboardManager cm = (ClipboardManager)getSystemService(mContext.CLIPBOARD_SERVICE);
                 //设置内容到剪切板
-                cm.setPrimaryClip(ClipData.newPlainText(null, tvtalk1.getText().toString().replace("新版下载","")));
-                Toast.makeText(HomeActivity.this, "已复制", Toast.LENGTH_SHORT).show();
+                cm.setPrimaryClip(ClipData.newPlainText(null, tvtalk1.getText().toString().replace("新版地址（长按复制）：","")));
+                Toast.makeText(HomeActivity.this, "已复制，快去下载吧！", Toast.LENGTH_SHORT).show();
             }
         });
 
