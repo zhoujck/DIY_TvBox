@@ -386,15 +386,6 @@ public class HomeActivity extends BaseActivity {
                    }    
           }); 
         
-        
-         tvName.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                reloadHome();
-                return true;
-            }
-        });
-        
        tvtalk1.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public void onLongClick(View v) {
