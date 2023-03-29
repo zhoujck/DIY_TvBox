@@ -46,7 +46,7 @@ cp $CURRENT_DIR/DIY/app_bg_black.png $CURRENT_DIR/$DIR/app/src/main/res/drawable
 cp $CURRENT_DIR/DIY/J/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java 
 
 # 内置接口
-sed -i 's#API_URL, ""#API_URL, "https://gitee.com/zhoujck/tv/raw/master/box"#g'   $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
+sed -i 's#API_URL, ""#API_URL, "https://agit.ai/zhoujck/config/raw/branch/master/box"#g'   $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
 
 #自定义epg
 #cp $CURRENT_DIR/DIY/epg_data.json $CURRENT_DIR/$DIR/app/src/main/assets/epg_data.json
