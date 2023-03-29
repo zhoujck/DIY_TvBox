@@ -392,7 +392,7 @@ public class HomeActivity extends BaseActivity {
                 //获取剪切板管理器
                 ClipboardManager cm = (ClipboardManager)getSystemService(mContext.CLIPBOARD_SERVICE);
                 //设置内容到剪切板
-                cm.setPrimaryClip(ClipData.newPlainText(null, tvtalk1.getText().toString().replace("新版地址点击复制","")));
+                cm.setPrimaryClip(ClipData.newPlainText(null, tvtalk1.getText().toString().replace("新版地址点击复制 ","")));
                 Toast.makeText(HomeActivity.this, "已复制，快去下载吧！", Toast.LENGTH_SHORT).show();
             }
         });
