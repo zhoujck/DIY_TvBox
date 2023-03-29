@@ -386,9 +386,9 @@ public class HomeActivity extends BaseActivity {
                    }    
           }); 
         
-       tvtalk1.setOnLongClickListener(new View.OnLongClickListener() {
+       tvtalk1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 //获取剪切板管理器
                 ClipboardManager cm = (ClipboardManager)getSystemService(mContext.CLIPBOARD_SERVICE);
                 //设置内容到剪切板
