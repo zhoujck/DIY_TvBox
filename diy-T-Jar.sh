@@ -26,7 +26,7 @@ sed -i 's#"app_source"><#"app_source">https://agit.ai/zhoujck/config/raw/branch/
 
 #图标修改
 mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_icon.png
-cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_banner.png
+sed -i 's/app_banner/app_icon/g' $CURRENT_DIR/$DIR/app/src/main/AndroidManifest.xml
 
 #背景修改
 #mv $CURRENT_DIR/DIY/app_bg_black.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
