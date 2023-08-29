@@ -22,7 +22,7 @@ echo "RELEASE_KEY_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 #名称修改
 sed -i 's/TVBox/糖果影视/g' $CURRENT_DIR/$DIR/app/src/main/res/values-zh/strings.xml
 sed -i 's/TVBox/糖果影视/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
-sed -i 's#"app_source"><#"app_source">https://agit.ai/zhoujck/config/raw/branch/master/box<#g' $CURRENT_DIR/$DIR/app/src/main/res/values-zh/strings.xml
+sed -i 's#"app_source"><#"app_source">https://ghproxy.net/https://raw.githubusercontent.com/zhoujck/config/master/box<#g' $CURRENT_DIR/$DIR/app/src/main/res/values-zh/strings.xml
 
 #图标修改
 mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_icon.png
@@ -43,7 +43,7 @@ cp $CURRENT_DIR/DIY/T/HomeActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/
 cp $CURRENT_DIR/DIY/T/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java 
 
 # 取消首页从通知栏位置布置
-cp $CURRENT_DIR/DIY/T/BaseActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/BaseActivity.java 
+#cp $CURRENT_DIR/DIY/T/BaseActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/BaseActivity.java 
 
 # 直播添加epg112114支持
 #cp $CURRENT_DIR/DIY/T/LivePlayActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
