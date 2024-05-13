@@ -24,6 +24,10 @@ sed -i 's/TVBox/糖果影视/g' $CURRENT_DIR/$DIR/app/src/main/res/values-zh/str
 sed -i 's/TVBox/糖果影视/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
 sed -i 's#"app_source"><#"app_source">https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/config/master/box<#g' $CURRENT_DIR/$DIR/app/src/main/res/values-zh/strings.xml
 
+#包名修改为西瓜视频
+sed -i 's/com.github.tvbox.osc/com.ss.android.article.video/g' $CURRENT_DIR/$DIR/app/src/main/AndroidManifest.xml
+
+
 #图标修改
 mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_icon.png
 sed -i 's/app_banner/app_icon/g' $CURRENT_DIR/$DIR/app/src/main/AndroidManifest.xml
