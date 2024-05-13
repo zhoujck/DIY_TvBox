@@ -57,7 +57,7 @@ cp $CURRENT_DIR/DIY/T/fragment_user.xml $CURRENT_DIR/$DIR/app/src/main/res/layou
 #cp $CURRENT_DIR/DIY/T/SearchActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/SearchActivity.java
 
 #长按倍速修改为2
-sed -i 's/3.0/2.0/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
+#sed -i 's/3.0/2.0/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
 
 #FongMi的jar支持
 echo "" >>$CURRENT_DIR/$DIR/app/proguard-rules.pro
