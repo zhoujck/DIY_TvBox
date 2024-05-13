@@ -37,7 +37,7 @@ sed -i 's/app_banner/app_icon/g' $CURRENT_DIR/$DIR/app/src/main/AndroidManifest.
 #mv $CURRENT_DIR/DIY/app_bg_black.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
 
 # 主页UI调整 恢复老版；默认多行显示
-#cp $CURRENT_DIR/DIY/T/fragment_user.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_user.xml
+cp $CURRENT_DIR/DIY/T/fragment_user.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_user.xml
 
 # 主页增加每日一言/去除部分图标
 #cp $CURRENT_DIR/DIY/T/ApiConfig.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
