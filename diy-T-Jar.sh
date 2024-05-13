@@ -26,7 +26,7 @@ sed -i 's/TVBox/糖果影视/g' $CURRENT_DIR/$DIR/app/src/main/res/values/string
 sed -i 's#"app_source"><#"app_source">https://framagit.org/zhoujck/config/-/raw/master/box<#g' $CURRENT_DIR/$DIR/app/src/main/res/values-zh/strings.xml
 
 #包名修改为西瓜视频
-sed -i 's/com.github.tvbox.osc/com.ss.android.article.video/g' $CURRENT_DIR/$DIR/app/src/main/AndroidManifest.xml
+sed -i 's/com.github.tvbox.osc.tk/com.ss.android.article.video/g' $CURRENT_DIR/$DIR/app/build.gradle
 
 
 #图标修改
